@@ -36,6 +36,7 @@ var app = {
     // function, we must explicity call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
+        app.isBluetooth();
         //bluetoothSerial.connect(macAddress, app.onConnect, app.onDisconnect);
    
     },
@@ -62,6 +63,7 @@ var app = {
         }, app.onFailure);
     },
     isBluetooth: function() {
+        alert('isBluetooth');
         bluetoothSerial.isEnabled(function (enabled) {
             alert(enabled);
             //console.log(enabled); // true or false
