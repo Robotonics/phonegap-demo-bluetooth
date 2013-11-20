@@ -36,7 +36,12 @@ var app = {
     // function, we must explicity call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
-        app.isBluetooth();
+        //app.isBluetooth();
+        bluetoothSerial.isEnabled(
+          null,
+          function(){
+            alert("Bluetooth is unable. Please turn on Bluetooth");
+        });
         //bluetoothSerial.connect(macAddress, app.onConnect, app.onDisconnect);
    
     },
@@ -54,13 +59,32 @@ var app = {
     connect: function() {
         bluetoothSerial.connect(macAddress, app.onConnect, app.onDisconnect);
     },
-    list: function() {
+    showDeviceList: function() {
+    
+      bluetoothSerial.isEnabled(
+      function(){
+        bluetoothSerial.list(
+          function( devices ){
+            var s = "Paired Bluetooth Device List:\n";
+            for( var i = 0; i < devices.length; i++ ){
+              s += (i+1) + ". " + devices[i].name + ": " + devices[i].address + "\n";
+            }
+            alert(s);
+        });
+      },
+      function(){
+        alert("Bluetooth is unable. Please turn on Bluetooth");
+    });
+
+    return true;
+    /*
         bluetoothSerial.list(function(devices) {
             devices.forEach(function(device) {
                 alert(device.address);
                 console.log(device.address);
             })
         }, app.onFailure);
+        */
     },
     isBluetooth: function() {
         alert('isBluetooth');
@@ -79,7 +103,7 @@ var app = {
         statusDiv.innerHTML="Disconnected.";
     },
     onFailure: function() {
-        alert("Failure");
+        alert("Bluetooth is unable. Please turn on Bluetooth");
         statusDiv.innerHTML="Disconnected.";
     },
     onMessage: function(data) {
