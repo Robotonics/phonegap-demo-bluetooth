@@ -16,7 +16,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-var macAddress = "00:13:EF:00:08:8B";
+var macAddress = "00:18:2F:B8:E9:B0";
  
 var app = {
     // Application Constructor
@@ -70,6 +70,7 @@ var app = {
               s += (i+1) + ". " + devices[i].name + ": " + devices[i].address + "\n";
             }
             alert(s);
+            console.log(s);
         });
       },
       function(){
@@ -88,8 +89,8 @@ var app = {
     },
     isBluetooth: function() {
         alert('isBluetooth');
-        bluetoothSerial.isEnabled(function (enabled) {
-            alert(enabled);
+        bluetoothSerial.isEnabled(function() {
+            alert('enabled');
             //console.log(enabled); // true or false
         }, onFailure); 
     },
@@ -111,6 +112,19 @@ var app = {
     },
     subscribeFailed: function() {
         alert("subscribe failed");
+    },
+    sendCommand: function( data ){
+
+        bluetoothSerial.isEnabled(
+          function(){
+            bluetoothSerial.write( data );
+          },
+          function(){
+            alert("Bluetooth is unable. Please turn on Bluetooth");
+        });
+
+        return true;
     }
+
     
 };
