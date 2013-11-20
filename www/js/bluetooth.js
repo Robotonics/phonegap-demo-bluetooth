@@ -17,7 +17,6 @@
  * under the License.
  */
 var macAddress = "00:13:EF:00:08:8B";
-var bluetoothSerial = cordova.require('bluetoothSerial');
  
 var app = {
     // Application Constructor

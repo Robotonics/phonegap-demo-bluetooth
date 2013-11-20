@@ -19,6 +19,8 @@
     <feature name="http://api.phonegap.com/1.0/device" />
     <feature name="http://api.phonegap.com/1.0/camera"/>
 
+    <preference name="permissions"                value="none"/>
+       
     <preference name="phonegap-version" value="2.9.0" /> 
     <preference name="orientation"                value="default" />        <!-- all: default means both landscape and portrait are enabled -->
     <preference name="target-device"              value="universal" />      <!-- all: possible values handset, tablet, or universal -->
@@ -42,4 +44,9 @@
     <!--<gap:plugin name="org.apache.cordova.core.camera" />-->
     <!--<gap:plugin name="com.phonegap.plugins.barcodescanner" />-->
     <gap:plugin name="com.megster.cordova.bluetoothserial" />
+    
+    <icon src="icon.png" />
+    
+    <access origin="*" />   
+      
 </widget>
