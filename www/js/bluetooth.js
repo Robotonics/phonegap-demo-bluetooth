@@ -38,6 +38,9 @@ var app = {
         app.receivedEvent('deviceready');
         
         // read config example
+        console.log(config);
+        counter.innerHTML=config.tokenkey;
+                
         /*
         $.ajax({
           dataType: "json",
@@ -50,6 +53,32 @@ var app = {
           }
         });
         */
+        /*
+         var reader = new FileReader();
+            reader.onload = function (evt) {
+                console.log("read success");
+                console.log(evt.target.result);
+            };
+            reader.readAsText('config.json');
+          */
+          
+         /*
+        function win(file) {
+            var reader = new FileReader();
+            reader.onloadend = function (evt) {
+                console.log("read success");
+                console.log(evt.target.result);
+            };
+            reader.readAsText(file);
+        };
+
+        var fail = function (error) {
+            console.log(error.code);
+        };
+
+        entry.file(win, fail);
+        */
+
 
         /*
         jQuery.getJSON("categories.json", function(data){         
