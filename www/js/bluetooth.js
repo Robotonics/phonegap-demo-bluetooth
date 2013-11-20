@@ -36,6 +36,24 @@ var app = {
     // function, we must explicity call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
+        
+        // read config example
+        $.ajax({
+          dataType: "json",
+          url: 'config.json',
+          data: data,
+          async: false,
+          success: function(data) {
+            statusDiv.innerHTML=data.tokenkey;
+          }
+        });
+
+        /*
+        jQuery.getJSON("categories.json", function(data){         
+            // data is yours parsed object
+        });
+        */
+        
         //app.isBluetooth();
         bluetoothSerial.isEnabled(
           null,
