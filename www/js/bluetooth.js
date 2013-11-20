@@ -40,10 +40,10 @@ var app = {
         // read config example
         $.ajax({
           dataType: "json",
-          url: 'config.json',
-          data: data,
+          url: 'config.json',          
           async: false,
           success: function(data) {
+            console.log(data);
             statusDiv.innerHTML=data.tokenkey;
           }
         });
