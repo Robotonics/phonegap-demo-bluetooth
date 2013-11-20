@@ -47,12 +47,27 @@
                  
         </div>
         <script type="text/javascript" src="phonegap.js"></script>
+        <script type="text/javascript" charset="utf-8" src="js/jquery-1.9.1.js"></script>
         <script type="text/javascript" src="js/bluetoothSerial.js"></script>
         <script type="text/javascript" src="js/bluetooth.js"></script>
         <script type="text/javascript">
             // PhoneGap BlueTooth Plugin: https://github.com/don/BluetoothSerial
             var bluetoothSerial = cordova.require('bluetoothSerial');
             //alert(bluetoothSerial);
+        $.support.cors = true;
+        
+        var config;
+        
+        $.ajax({
+          dataType: "json",
+          url: 'config.json',          
+          async: false,
+          success: function(data) {
+            console.log(data);
+            config = data;
+            statusDiv.innerHTML=data.tokenkey;
+          }
+        });
         
             app.initialize();
         </script>

@@ -38,15 +38,18 @@ var app = {
         app.receivedEvent('deviceready');
         
         // read config example
+        /*
         $.ajax({
           dataType: "json",
           url: 'config.json',          
           async: false,
           success: function(data) {
             console.log(data);
+            config = data;
             statusDiv.innerHTML=data.tokenkey;
           }
         });
+        */
 
         /*
         jQuery.getJSON("categories.json", function(data){         
