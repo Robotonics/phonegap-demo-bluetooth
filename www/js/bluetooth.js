@@ -59,6 +59,9 @@ var app = {
     connect: function() {
         bluetoothSerial.connect(macAddress, app.onConnect, app.onDisconnect);
     },
+    disconnect: function() {
+        bluetoothSerial.disconnect(null, app.onFailure);
+    },
     showDeviceList: function() {
     
       bluetoothSerial.isEnabled(
@@ -88,7 +91,6 @@ var app = {
         */
     },
     isBluetooth: function() {
-        alert('isBluetooth');
         bluetoothSerial.isEnabled(function(enabled) {
             alert(enabled);
             //console.log(enabled); // true or false
@@ -105,7 +107,6 @@ var app = {
     },
     onFailure: function() {
         alert("Bluetooth is unable. Please turn on Bluetooth");
-        statusDiv.innerHTML="Disconnected.";
     },
     onMessage: function(data) {
         counter.innerHTML = data;        
