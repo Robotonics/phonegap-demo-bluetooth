@@ -89,10 +89,10 @@ var app = {
     },
     isBluetooth: function() {
         alert('isBluetooth');
-        bluetoothSerial.isEnabled(function() {
-            alert('enabled');
+        bluetoothSerial.isEnabled(function(enabled) {
+            alert(enabled);
             //console.log(enabled); // true or false
-        }, onFailure); 
+        }, app.onFailure); 
     },
     
     onConnect: function() {
