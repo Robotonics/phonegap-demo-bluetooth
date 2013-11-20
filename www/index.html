@@ -23,7 +23,7 @@
         <meta name="format-detection" content="telephone=no" />
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
         <link rel="stylesheet" type="text/css" href="css/index.css" />
-        <title>Hello World</title>
+        <title>Bluetooth</title>
     </head>
     <body>
         <div class="app">
@@ -33,15 +33,25 @@
                 <div class="event received">
                   <p>Device is Ready</p>
                 </div>
-
-                <button onclick="app.takePicture();">Take Picture</button>
-                              
-                <a href="bluetooth.html"><button>Test Bluetooth</button></a>
+        
             </div>
+            
+            <div id="counter">...</div>
+            <div id="statusDiv"></div>
+            
+            <button onclick="app.isBluetooth();">is bluetooth?</button>
+            <button onclick="app.showDeviceList();">List</button>
+            <button onclick="app.connect();">Connect</button>
+                 
         </div>
         <script type="text/javascript" src="phonegap.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="js/bluetoothSerial.js"></script>
+        <script type="text/javascript" src="js/bluetooth.js"></script>
         <script type="text/javascript">
+            // PhoneGap BlueTooth Plugin: https://github.com/don/BluetoothSerial
+            var bluetoothSerial = cordova.require('bluetoothSerial');
+            alert(bluetoothSerial);
+        
             app.initialize();
         </script>
     </body>
