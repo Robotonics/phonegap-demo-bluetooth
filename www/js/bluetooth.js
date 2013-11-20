@@ -61,6 +61,13 @@ var app = {
             })
         }, app.onFailure);
     },
+    isBluetooth: function() {
+        bluetoothSerial.isEnabled(function (enabled) {
+            alert(enabled);
+            //console.log(enabled); // true or false
+        }, onFailure); 
+    },
+    
     onConnect: function() {
         bluetoothSerial.subscribe("\n", app.onMessage, app.subscribeFailed);
         statusDiv.innerHTML="Connected to " + macAddress + ".";        
